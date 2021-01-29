@@ -14,37 +14,41 @@
  * limitations under the License.
  */
 
-package com.kunminx.architecture.domain.manager;
+package com.kunminx.architecture.data.response;
 
 /**
+ * TODO：本类仅用作示例参考，请根据 "实际项目需求" 配置自定义的 "响应状态元信息"
+ *
  * Create by KunMinX at 19/10/11
  */
-public class NetState {
+public class ResponseStatus {
 
-    private String responseCode;
+    private String responseCode = "";
     private boolean success = true;
+    private Enum source = ResultSource.NETWORK;
 
-    public NetState(String responseCode, boolean success) {
+    public ResponseStatus() {
+    }
+
+    public ResponseStatus(String responseCode, boolean success) {
         this.responseCode = responseCode;
         this.success = success;
     }
 
-    public NetState() {
+    public ResponseStatus(String responseCode, boolean success, Enum source) {
+        this(responseCode, success);
+        this.source = source;
     }
 
     public String getResponseCode() {
         return responseCode;
     }
 
-    public void setResponseCode(String responseCode) {
-        this.responseCode = responseCode;
-    }
-
     public boolean isSuccess() {
         return success;
     }
 
-    public void setSuccess(boolean success) {
-        this.success = success;
+    public Enum getSource() {
+        return source;
     }
 }

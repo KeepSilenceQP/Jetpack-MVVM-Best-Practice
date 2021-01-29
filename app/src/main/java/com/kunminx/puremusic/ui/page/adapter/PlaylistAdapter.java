@@ -35,16 +35,16 @@ public class PlaylistAdapter extends SimpleDataBindingAdapter<TestAlbum.TestMusi
     public PlaylistAdapter(Context context) {
         super(context, R.layout.adapter_play_item, DiffUtils.getInstance().getTestMusicItemCallback());
 
-        setOnItemClickListener(((item, position) -> {
+        setOnItemClickListener((viewId, item, position) -> {
             PlayerManager.getInstance().playAudio(position);
-        }));
+        });
     }
 
     @Override
     protected void onBindItem(AdapterPlayItemBinding binding, TestAlbum.TestMusic item, RecyclerView.ViewHolder holder) {
         binding.setAlbum(item);
         int currentIndex = PlayerManager.getInstance().getAlbumIndex();
-        binding.ivPlayStatus.setColor(currentIndex == holder.getAdapterPosition()
-                ? binding.getRoot().getContext().getResources().getColor(R.color.gray) : Color.TRANSPARENT);
+        binding.ivPlayStatus.setColor(currentIndex == holder.getAbsoluteAdapterPosition()
+                ? binding.getRoot().getContext().getColor(R.color.gray) : Color.TRANSPARENT);
     }
 }

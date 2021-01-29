@@ -20,7 +20,6 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
 
-
     defaultConfig {
         minSdkVersion 23
         targetSdkVersion 29
@@ -28,50 +27,36 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles 'consumer-rules.pro'
     }
 
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
-
-    lintOptions {
-        checkReleaseBuilds false
-        abortOnError false
+    buildFeatures {
+        dataBinding true
     }
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-
-    dataBinding {
-        enabled = true
-    }
-
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    testImplementation 'junit:junit:4.13'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    testImplementation 'junit:junit:4.13.1'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
-    implementation 'androidx.appcompat:appcompat:1.1.0'
+    api 'androidx.appcompat:appcompat:1.2.0'
 
-    implementation 'androidx.lifecycle:lifecycle-runtime:2.2.0'
-    implementation 'androidx.lifecycle:lifecycle-common-java8:2.2.0'
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel:2.2.0'
-    implementation 'androidx.lifecycle:lifecycle-livedata:2.2.0'
-    implementation 'androidx.navigation:navigation-runtime:2.3.0'
+    api 'androidx.lifecycle:lifecycle-runtime:2.2.0'
+    api 'androidx.lifecycle:lifecycle-common-java8:2.2.0'
+    api 'androidx.lifecycle:lifecycle-viewmodel:2.2.0'
+    api 'androidx.lifecycle:lifecycle-livedata:2.2.0'
+    api 'androidx.navigation:navigation-runtime:2.3.2'
 
-    implementation 'com.kunminx.archi:unpeek-livedata:3.0.9-beta6'
-    implementation 'com.kunminx.archi:smooth-navigation:2.9.7-beta4'
-    implementation 'com.kunminx.archi:strict-databinding:3.0.2-beta1'
+    api 'com.kunminx.archi:unpeek-livedata:4.4.1-beta1'
+    api 'com.kunminx.archi:smooth-navigation:3.3.2-beta5'
+    api 'com.kunminx.archi:strict-databinding:3.6.2-beta1'
+    api 'com.kunminx.archi:domain:1.1.0'
 
 }

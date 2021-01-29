@@ -3,23 +3,24 @@
 .externalNativeBuild
 .project
 .gradle
-.idea
 .mtj.tmp
 .vscode
 .settings
+.cxx
+
+/.idea
 
 local.properties
 maven-repository
 mvn-clone
 build
 captures
-objectbox-models
 gen
 out
 target
 
 *.class
-*.ctxt
+*.txt
 *.ear
 *.iml
 *.jar
@@ -30,3 +31,4 @@ target
 *.tar.gz
 *.war
 *.zip
+*.apk
